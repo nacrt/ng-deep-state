@@ -135,7 +135,7 @@ export class Example {
 # effect example
 
 ```ts
-const user = toDeepWritableSignal({
+const user = toDeepWritableSignal(signal({
     id: 1,
     name: "holden",
     attributes: {
@@ -146,7 +146,7 @@ const user = toDeepWritableSignal({
         "respected",
         "password_expired",
     ]
-});
+}));
 
 effect(() => {
     console.log(user());
