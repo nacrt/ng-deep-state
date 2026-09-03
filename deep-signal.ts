@@ -70,7 +70,7 @@ function equal(left: any, right: any) {
 export function toDeepWritableSignal<T>(model: WritableSignal<T>): DeepWritableSignal<T> {
     return new Proxy(model, {
         has(target: any, prop) {
-            return Boolean(this.get!(target as any, prop, undefined));
+            return prop in (untracked(target) as any);
         },
 
         get(target: any, prop) {
